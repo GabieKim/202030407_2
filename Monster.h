@@ -1,17 +1,12 @@
 #pragma once
-#include "Character.h"
 #include "Actor.h"
 
-class AMonster : public ACharacter
+class AMonster : public AActor
 {
 public:
 	AMonster();
 	virtual ~AMonster();
 
-public:
-	virtual void Move() override;
-
-protected:
 
 };
 

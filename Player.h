@@ -1,17 +1,13 @@
 #pragma once
-#include "Character.h"
 #include "Actor.h"
-class APlayer : public ACharacter
+
+class APlayer : public AActor
 {
 public:
 	APlayer();
 	virtual~APlayer();
-
-public:
-	virtual void Move() override;
 	
 protected:
-	int PosX;
-	int PosY;
+	
 };
 
