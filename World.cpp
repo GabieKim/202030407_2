@@ -1,16 +1,20 @@
 #include "World.h"
 #include "Actor.h"
+#include <algorithm>
 #include <iostream>
 
 UWorld::UWorld()
 {
-	std::cout << "技惑 积己" << std::endl;
+	
 }
 
 
 UWorld::~UWorld()
 {
-	std::cout << "技惑 昏力" << std::endl;
+	for (auto DeleteActor : Actors)
+	{
+		delete DeleteActor;
+	}
 }
 
 void UWorld::SpawnActor(AActor* NewActor)
@@ -19,4 +23,37 @@ void UWorld::SpawnActor(AActor* NewActor)
 	{
 		Actors.push_back(NewActor);
 	}
+}
+
+void UWorld::Input()
+{
+	for (auto ProcessActor : Actors)
+	{
+		ProcessActor->Input();
+	}
+}
+
+void UWorld::Tick()
+{
+	for (auto ProcessActor : Actors)
+	{
+		ProcessActor->Tick();
+	}
+
+}
+
+void UWorld::Render()
+{
+	for (auto ProcessActor : Actors)
+	{
+		ProcessActor->Render();
+	}
+
+}
+
+void UWorld::Sort()
+{
+	//Actors[0] > Actors[2];
+	//std::sort(Actors.begin(), Actors.end());
+	std::sort(Actors.begin(), Actors.end(), AActor::Compare);
 }

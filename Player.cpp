@@ -1,16 +1,20 @@
 #include "Player.h"
-#include <iostream>
 
-void APlayer::Move()
-{
-}
 
 APlayer::APlayer()
 {
-	std::cout << "플레이어 생성" << std::endl;
+	Shape = 'P';
+	X = 2;
+	Y = 2;
+}
+
+APlayer::APlayer(int NewX, int NewY, char NewShape)
+	:AActor(NewX, NewY, NewShape)
+{
+	SortOrder = 3;
 }
 
 APlayer::~APlayer()
 {
-	std::cout << "플레이어 삭제" << std::endl;
+	
 }

@@ -1,0 +1,20 @@
+#include "Goal.h"
+#include <iostream>
+
+AGoal::AGoal()
+{
+	Shape = 'G';
+	X = 9;
+	Y = 9;
+}
+
+AGoal::AGoal(int NewX, int NewY, char NewShape)
+	:AActor(NewX, NewY, NewShape)
+{
+	SortOrder = 2;
+}
+
+AGoal::~AGoal()
+{
+	
+}

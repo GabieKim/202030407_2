@@ -1,12 +1,20 @@
 #include "Wall.h"
-#include <iostream>
 
 AWall::AWall()
 {
-	std::cout << "벽 생성" << std::endl;
+	
+}
+
+AWall::AWall(int NewX, int NewY, char NewShape)
+	: AActor::AActor(NewX, NewY, NewShape)
+{	
+	SortOrder = 2;
+	//X = NewX;
+	//Y = NewY;
+	//Shape = NewShape;
 }
 
 AWall::~AWall()
 {
-	std::cout << "벽 제거" << std::endl;
+	
 }
