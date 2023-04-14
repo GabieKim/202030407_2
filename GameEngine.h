@@ -15,6 +15,10 @@ public:
 	
 	inline UWorld* GetWorld() const { return World; }
 
+	// ¿ø·¡ protected
+	int KeyCode;
+
+
 protected:
 	void Input();
 	void Tick();

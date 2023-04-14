@@ -21,10 +21,6 @@ AActor::~AActor()
 {
 }
 
-void AActor::Input()
-{
-}
-
 void AActor::Tick()
 {
 }

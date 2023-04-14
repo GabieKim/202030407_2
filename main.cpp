@@ -31,8 +31,7 @@ int StaticClass::Count = 0;
 int main()
 {	
 	//StaticClass::A();
-	//StaticClass::Count = 0;	
-	
+	//StaticClass::Count = 0;		
 	//bool bIsRunnung = true;
 	//// GameEngine
 	//UWorld* World = new UWorld();
@@ -40,12 +39,12 @@ int main()
 	//World->SpawnActor(new APlayer());
 	//World->SpawnActor(new AGoal());
 
-	MyGameEngine* Engine =new MyGameEngine();
+	//MyGameEngine* Engine = GEngine;
+	
+	GEngine->Init();
+	GEngine->Run();
 
-	Engine->Init();
-	Engine->Run();
-
-	delete Engine;
+	delete GEngine;
 
 	return 0;
 }

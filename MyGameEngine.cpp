@@ -6,6 +6,9 @@
 #include "Goal.h"
 #include "World.h"
 
+
+MyGameEngine* MyGameEngine::Instance = nullptr;
+
 MyGameEngine::MyGameEngine()
 {
 
