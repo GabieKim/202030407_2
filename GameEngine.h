@@ -1,6 +1,10 @@
 #pragma once
 #include "World.h"
 #include <string>
+#include <SDL.h>
+
+#pragma comment(lib, "SDL2.lib")
+#pragma comment(lib, "SDL2main.lib")
 
 class GameEngine
 {
@@ -17,6 +21,10 @@ public:
 
 	// ¿ø·¡ protected
 	int KeyCode;
+
+	SDL_Window* MyWindow;
+	SDL_Renderer* MyRenderer;
+	SDL_Event MyEvent;
 
 
 protected:

@@ -12,6 +12,8 @@
 #include <algorithm>
 #include <conio.h> // 엔터 안쳐도 키 입력되는 것
 
+#include "SDL.h"
+
 GameEngine::GameEngine()
 {
 	bIsRunning = true;
@@ -27,12 +29,24 @@ GameEngine::~GameEngine()
 		delete World;
 		World = nullptr;
 	}
-	
+
+	SDL_DestroyRenderer(MyRenderer);
+	SDL_DestroyWindow(MyWindow);
+	SDL_Quit();	
 }
 
 void GameEngine::Init()
 {
 	World = new UWorld();
+
+	SDL_Init(SDL_INIT_EVERYTHING);
+
+	MyWindow = SDL_CreateWindow("Game", 100, 100, 800, 600,
+		SDL_WINDOW_VULKAN);
+
+	MyRenderer = SDL_CreateRenderer(MyWindow, -1,
+		SDL_RENDERER_TARGETTEXTURE | SDL_RENDERER_ACCELERATED);
+
 }
 
 void GameEngine::Load(std::string Filename)
@@ -114,8 +128,8 @@ void GameEngine::Stop()
 
 void GameEngine::Input()
 {
-	KeyCode = _getch();
-	
+	//KeyCode = _getch();
+	SDL_PollEvent(&MyEvent);
 }
 
 void GameEngine::Tick()
@@ -125,5 +139,12 @@ void GameEngine::Tick()
 
 void GameEngine::Render()
 {
+
+	SDL_SetRenderDrawColor(MyRenderer, 255, 255, 255, 0 );
+	SDL_RenderClear(MyRenderer);
+
 	World->Render();
+
+	SDL_RenderPresent(MyRenderer);
 }
+

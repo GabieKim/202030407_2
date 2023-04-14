@@ -1,46 +1,15 @@
 #include <iostream>
 #include "MyGameEngine.h"
-// #include <memory>
+#include "SDL.h"
+
+#pragma comment(lib, "SDL2.lib")
+#pragma comment(lib, "SDL2main.lib")
+
 using namespace std;
 
-class StaticClass
+
+int SDL_main(int argc, char* argv[])
 {
-public: 
-	StaticClass()
-	{
-		StaticClass::Count++;
-	}
-	virtual ~StaticClass()
-	{
-		StaticClass:Count--;
-	}
-	// static으로 만들면 얘는 글로벌함수다
-	static void A()
-	{
-		cout << "A" << endl;
-	}
-
-	// 변수도 static으로 할 수 있다
-	static int Count;
-
-private:
-	int Gold;
-};
-int StaticClass::Count = 0;
-//----------------------------------------------
-int main()
-{	
-	//StaticClass::A();
-	//StaticClass::Count = 0;		
-	//bool bIsRunnung = true;
-	//// GameEngine
-	//UWorld* World = new UWorld();
-	//// Load 엔진이 로딩하는 것
-	//World->SpawnActor(new APlayer());
-	//World->SpawnActor(new AGoal());
-
-	//MyGameEngine* Engine = GEngine;
-	
 	GEngine->Init();
 	GEngine->Run();
 
@@ -48,3 +17,5 @@ int main()
 
 	return 0;
 }
+
+
