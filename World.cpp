@@ -51,3 +51,18 @@ void UWorld::Sort()
 	//std::sort(Actors.begin(), Actors.end());
 	std::sort(Actors.begin(), Actors.end(), AActor::Compare);
 }
+
+bool UWorld::CheckCollision(int X, int Y)
+{
+	for (auto OtherActor : Actors)
+	{
+		if (OtherActor->X == X &&
+			OtherActor->Y == Y &&
+			OtherActor->bIsCollision == true)
+		{
+			return true;
+		}
+	}	
+	// 내가 이걸 빼먹었었다!!!
+	return false;
+}

@@ -3,7 +3,7 @@
 
 AFloor::AFloor()
 {
-	std::cout << "¹Ù´Ú »ý¼º" << std::endl;
+	
 }
 
 AFloor::AFloor(int NewX, int NewY, char NewShape)
@@ -14,6 +14,6 @@ AFloor::AFloor(int NewX, int NewY, char NewShape)
 
 AFloor::~AFloor()
 {
-	std::cout << "¹Ù´Ú »èÁ¦" << std::endl;
+
 
 }

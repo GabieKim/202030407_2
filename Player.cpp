@@ -1,47 +1,63 @@
 #include "Player.h"
 #include "MyGameEngine.h"
+#include "GameEngine.h"
+#include "World.h"
 
 APlayer::APlayer()
 {
 	Shape = 'P';
 	X = 2;
 	Y = 2;
+	bIsCollision = false;
 }
 
 APlayer::APlayer(int NewX, int NewY, char NewShape)
 	:AActor(NewX, NewY, NewShape)
 {
 	SortOrder = 3;
+	bIsCollision = false;
 }
 
 void APlayer::Tick()
 {
 	switch (GEngine->KeyCode)
 	{
-	case 'w': 
-		Y--;
+	case 'w':
+		// ¹Ì¸® °¡º½
+		if (!GEngine->GetWorld()->CheckCollision(X, Y - 1))
+		{
+			Y--;
+		}
 		break;
 
 	case 's':
-		Y++;
+		if (!GEngine->GetWorld()->CheckCollision(X, Y + 1))
+		{
+			Y++;
+		}
 		break;
 
 	case 'a':
-		X--;
+		if (!GEngine->GetWorld()->CheckCollision(X - 1, Y))
+		{
+			X--;
+		}
 		break;
 
 	case 'd':
-		X++;
+		if (!GEngine->GetWorld()->CheckCollision(X + 1, Y))
+		{
+			X++;
+		}
 		break;
 
 	case 'q':
 		GEngine->Stop();
-		break;		
-
+		break;
 	}
 }
 
 APlayer::~APlayer()
 {
-	
+
 }

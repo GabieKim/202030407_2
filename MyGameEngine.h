@@ -22,6 +22,7 @@ public:
 
 	virtual void Init() override;
 
+
 private:
 	static MyGameEngine* Instance;
 
